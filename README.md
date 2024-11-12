@@ -36,6 +36,10 @@
 
 4. **Draft and Refine**: The system drafts an initial response with only verified claims, then refines it to improve clarity, naturalness, and engagement.
 
+## Implementation
+
+The authors developed two versions of WikiChat (G3.5 and G4) and a distilled, smaller version (WikiChat L) to enhance efficiency. They used **ColBERT v2** for fast and accurate retrieval from Wikipedia, supporting reliable fact-checking. Performance was tested through **simulated dialogues**, demonstrating WikiChat’s high factual accuracy, especially on rare and recent topics.   
+
 ## Architecture Overview
 
 WikiChat’s architecture is built around a **seven-step pipeline** designed to ensure factual accuracy and conversational quality. This pipeline goes beyond simple retrieval and generation, incorporating steps for filtering, claim verification, and response refinement to prevent hallucinations. Central to this process is the **DSPy pipeline**, which provides a modular framework for efficient and flexible integration of retrieval, generation, and fact-checking components.
@@ -72,11 +76,6 @@ WikiChat employs DSPy for modular efficiency and model distillation to reduce la
 * **Reliance on Wikipedia as a Primary Knowledge Source**: While Wikipedia is a widely trusted and frequently updated source, its coverage may be insufficient for specialized or emerging topics, such as certain areas in medicine or law. This reliance could limit WikiChat’s effectiveness in domains where comprehensive, specialized knowledge is essential. Expanding WikiChat’s capacity to draw from other reliable databases could make it more versatile and adaptable.
 
 * **Latency Challenges Due to the 7-Stage Pipeline**: WikiChat’s multi-step approach, involving claim extraction, verification, and refinement, could lead to slower response times, especially in high-demand, real-time scenarios. Although this design enhances factual accuracy, future work on optimizing or parallelizing the process could improve response speed without sacrificing reliability.
-
-## Implementation Key Findings
-
-The authors developed two versions of WikiChat (G3.5 and G4) and a distilled, smaller version (WikiChat L) to enhance efficiency. They used **ColBERT v2** for fast and accurate retrieval from Wikipedia, supporting reliable fact-checking. Performance was tested through **simulated dialogues**, demonstrating WikiChat’s high factual accuracy, especially on rare and recent topics.
-
 
 ## Impact of WikiChat on the AI Landscape
 
