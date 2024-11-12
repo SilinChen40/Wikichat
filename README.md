@@ -106,6 +106,14 @@ output = WikiChat_Response(user_query)
 
 * **Broader Importance and Intersections**: WikiChat intersects with ongoing research on interpretability and trustworthiness in AI, aligning with the goals of making AI systems more accountable and understandable for users. This work also contributes to ethical AI development by aiming to reduce misinformation and increase transparency in AI-driven responses, aligning with long-term goals in responsible AI practices.
 
+## Citation
+
+Semnani, Shima Jazayeri, Victor Zhongkai Yao, Hongchang Zhang, and Monica S. Lam. **"WikiChat: Stopping the Hallucination of Large Language Model Chatbots by Few-Shot Grounding on Wikipedia."** arXiv preprint arXiv:2305.14292 (2023).
+
+## Resources
+
+- [WikiChat GitHub Repository](https://github.com/stanford-oval/WikiChat): Access the code and implementation details for WikiChat.
+- [WikiChat Paper on arXiv](https://arxiv.org/abs/2305.14292): Read the full research paper for an in-depth understanding of the approach and methodology.
 
 
 
