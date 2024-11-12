@@ -41,6 +41,8 @@
 
 ## Architecture Overview
 
+WikiChat’s architecture is built around a **seven-step pipeline** designed to ensure factual accuracy and conversational quality. This pipeline goes beyond simple retrieval and generation, incorporating steps for filtering, claim verification, and response refinement to prevent hallucinations. Central to this process is the **DSPy pipeline**, which provides a modular framework for efficient and flexible integration of retrieval, generation, and fact-checking components.
+
 ```python
 # WikiChat 7-Stage Pipeline for Factual Chatbot Responses
 
@@ -90,21 +92,29 @@ output = WikiChat_Response(user_query)
 <img src="images\wikipipeline.png" alt="" style="width: 60%; min-width: 300px; display: block; margin: auto;">
 </p>
 
+### Additional Approach
+
+* **Model distillation**: WikiChat employs this method to create a smaller, optimized version of the LLaMA model, retaining accuracy while reducing latency and operational costs for real-world usability. The evaluation process combines human and model-based assessments, focusing on factual accuracy and conversational quality to ensure responses are both reliable and engaging.
+* **Evaluation process**: It combines human and model-based assessments, focusing on factual accuracy and conversational quality to ensure responses are both reliable and engaging.
+
 ## Critical Analysis: Key Limitations and Opportunities for Improvemen
 
 * **Reliance on Wikipedia as a Primary Knowledge Source**: While Wikipedia is a widely trusted and frequently updated source, its coverage may be insufficient for specialized or emerging topics, such as certain areas in medicine or law. This reliance could limit WikiChat’s effectiveness in domains where comprehensive, specialized knowledge is essential. Expanding WikiChat’s capacity to draw from other reliable databases could make it more versatile and adaptable.
 
 * **Latency Challenges Due to the 7-Stage Pipeline**: WikiChat’s multi-step approach, involving claim extraction, verification, and refinement, could lead to slower response times, especially in high-demand, real-time scenarios. Although this design enhances factual accuracy, future work on optimizing or parallelizing the process could improve response speed without sacrificing reliability.
 
+### Implementation Key Findings
+
+The authors developed two versions of WikiChat (G3.5 and G4) and a distilled, smaller version (WikiChat L) to enhance efficiency. They used **ColBERT v2** for fast and accurate retrieval from Wikipedia, supporting reliable fact-checking. Performance was tested through **simulated dialogues**, demonstrating WikiChat’s high factual accuracy, especially on rare and recent topics.
 
 
 ## Impact of WikiChat on the AI Landscape
 
-* **Enhancing Factual Reliability in Conversational AI**: WikiChat addresses a major limitation of traditional LLMs: hallucination, or the generation of plausible but incorrect information. By implementing a fact-checking pipeline grounded in Wikipedia, WikiChat has set a new standard for factual accuracy in conversational AI. This emphasis on reliability is crucial as AI systems become more integrated into critical applications (e.g., education, healthcare).
+* **Reducing Hallucination in LLMs**: By implementing the approach outlined in WikiChat, we have significantly decreased hallucination in our large language model (LLM) responses. Grounding responses in verifiable information from Wikipedia has enhanced the factual accuracy of the chatbot, resulting in more reliable and trustworthy interactions.
 
-* **Influencing Future Research and Development**: The WikiChat approach demonstrates how retrieval-based methods can be combined with generative models to improve accuracy without sacrificing conversational quality. This work is likely to inspire further research into hybrid models that prioritize grounding responses in verifiable sources. Additionally, WikiChat’s pipeline may encourage other researchers to develop specialized fact-checking systems, potentially using multi-source verification and domain-specific databases. This evolution could help shape the next generation of reliable AI assistants and knowledge-based systems
+* **Efficiency Gains with DSPy Pipeline**: Leveraging the DSPy pipeline has streamlined the process, making the entire pipeline more efficient. This integration allows for faster retrieval, claim extraction, and verification, reducing latency without compromising on the accuracy of the generated responses.
 
-* **Broader Importance and Intersections**: WikiChat intersects with ongoing research on interpretability and trustworthiness in AI, aligning with the goals of making AI systems more accountable and understandable for users. This work also contributes to ethical AI development by aiming to reduce misinformation and increase transparency in AI-driven responses, aligning with long-term goals in responsible AI practices.
+* **Extending WikiChat’s Approach for Broader Applications:**: Inspired by WikiChat, we conducted our own experiments combining Retrieval-Augmented Generation (RAG) and fact-checking. This hybrid approach has demonstrated its potential for a variety of tasks beyond traditional Q&A, opening up possibilities for new applications where both accuracy and conversational quality are critical.
 
 ## Citation
 
