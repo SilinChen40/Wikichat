@@ -71,6 +71,17 @@ WikiChat employs DSPy for modular efficiency and model distillation to reduce la
 * **Model distillation**: WikiChat employs this method to create a smaller, optimized version of the LLaMA model, retaining accuracy while reducing latency and operational costs for real-world usability. The evaluation process combines human and model-based assessments, focusing on factual accuracy and conversational quality to ensure responses are both reliable and engaging.
 * **Evaluation process**: It combines human and model-based assessments, focusing on factual accuracy and conversational quality to ensure responses are both reliable and engaging.
 
+## Key Findings
+1. **Claim Density**: WikiChat G4 generated more claims per turn (3.6 claims) compared to GPT-4 (2.5 claims), providing richer responses.
+
+2. **Source Reliance**: WikiChat balanced reliance between LLM output (30%) and Wikipedia-based information (70%), strengthening accuracy.
+
+3. **Fact-Checking Rejections**: About one-third of claims, particularly in niche and recent topics, were filtered out, significantly reducing hallucinations.
+
+4. **Refinement Improvements**: The final refinement stage boosted conversational quality and temporal accuracy, particularly for niche and recent topics.
+
+5. **Trustworthy “I Don’t Know” Responses**: For unavailable information, WikiChat responds with “I don’t know,” enhancing user trust.  
+
 ## Critical Analysis: Key Limitations and Opportunities for Improvement
 
 * **Reliance on Wikipedia as a Primary Knowledge Source**: While Wikipedia is a widely trusted and frequently updated source, its coverage may be insufficient for specialized or emerging topics, such as certain areas in medicine or law. This reliance could limit WikiChat’s effectiveness in domains where comprehensive, specialized knowledge is essential. Expanding WikiChat’s capacity to draw from other reliable databases could make it more versatile and adaptable.
