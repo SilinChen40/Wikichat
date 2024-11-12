@@ -36,6 +36,10 @@
 
 4. **Draft and Refine**: The system drafts an initial response with only verified claims, then refines it to improve clarity, naturalness, and engagement.
 
+## Architecture Overview
+
+WikiChat’s architecture is built around a **seven-step pipeline** designed to ensure factual accuracy and conversational quality. This pipeline goes beyond simple retrieval and generation, incorporating steps for filtering, claim verification, and response refinement to prevent hallucinations. Central to this process is the **DSPy pipeline**, which provides a modular framework for efficient and flexible integration of retrieval, generation, and fact-checking components.
+
 ## Key Questions
 
 1. How does WikiChat ensure factual accuracy in its responses while maintaining conversational quality?
@@ -45,47 +49,6 @@ WikiChat uses a seven-step pipeline with claim verification and response refinem
 2. What techniques does WikiChat use to optimize efficiency, and how do these impact its real-world applicability?
 
 WikiChat employs DSPy for modular efficiency and model distillation to reduce latency, making it practical for real-time use.
-
-## Architecture Overview
-
-WikiChat’s architecture is built around a **seven-step pipeline** designed to ensure factual accuracy and conversational quality. This pipeline goes beyond simple retrieval and generation, incorporating steps for filtering, claim verification, and response refinement to prevent hallucinations. Central to this process is the **DSPy pipeline**, which provides a modular framework for efficient and flexible integration of retrieval, generation, and fact-checking components.
-
-```python
-# WikiChat 7-Stage Pipeline for Factual Chatbot Responses
-
-function WikiChat_Response(user_query):
-    # Stage 1: Retrieve relevant information
-    query = generate_query(user_query)  # generate query based on user input
-    retrieved_passages = retrieve_from_wikipedia(query)  # fetch passages from Wikipedia
-
-    # Stage 2: Summarize and filter the retrieved information
-    summary_bullets = summarize_and_filter(retrieved_passages)  # filter irrelevant data, summarize important info
-
-    # Stage 3: Generate initial response with LLM
-    initial_response = LLM_generate_response(summary_bullets, user_query)  # use LLM to create a response
-
-    # Stage 4: Extract claims from the generated response
-    claims = extract_claims(initial_response)  # split response into individual claims
-
-    # Stage 5: Fact-check each claim
-    verified_claims = []
-    for claim in claims:
-        evidence = retrieve_evidence(claim)  # retrieve relevant evidence for the claim
-        if verify_claim(claim, evidence):
-            verified_claims.append(claim)  # add to list if verified as factual
-
-    # Stage 6: Draft response with verified claims
-    draft_response = draft_with_verified_claims(verified_claims)  # compile verified claims into a draft response
-
-    # Stage 7: Refine response for conversational quality
-    final_response = refine_response(draft_response, user_query)  # enhance naturalness, relevance, and clarity
-
-    return final_response
-
-# Main Function Execution
-output = WikiChat_Response(user_query)
-
-```
 
 ### Understanding WikiChat’s Unique Approach
 
