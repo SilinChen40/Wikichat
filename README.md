@@ -96,7 +96,7 @@ WikiChat employs DSPy for modular efficiency and model distillation to reduce la
 
 * **Extending WikiChat’s Approach for Broader Applications:**: Inspired by WikiChat, we conducted our own experiments combining Retrieval-Augmented Generation (RAG) and fact-checking. This hybrid approach has demonstrated its potential for a variety of tasks beyond traditional Q&A, opening up possibilities for new applications where both accuracy and conversational quality are critical.
 
-## Citation
+## References
 
 1. Semnani, Shima Jazayeri, Victor Zhongkai Yao, Hongchang Zhang, and Monica S. Lam. "WikiChat: Stopping the Hallucination of Large Language Model Chatbots by Few-Shot Grounding on Wikipedia." arXiv preprint arXiv:2305.14292 (2023).
 2. Yejin Bang, Samuel Cahyawijaya, Nayeon Lee, Wenliang Dai, Dan Su, Bryan Wilie, Holy Lovenia, ZiweiJi, Tiezheng Yu, Willy Chung, Quyet V. Do, Yan Xu, and Pascale Fung. 2023. A multitask, multilingual, multimodal evaluation of chatgpt on reasoning, hallucination, and interactivity.
